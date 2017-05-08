@@ -91,3 +91,31 @@ int Data::porownaj(const Data &wzor) const {
             (miesiac == wzor.miesiac) &&
             (rok == wzor.rok));
 }
+
+Data::Data() {
+    dzien = 0;
+    miesiac = 0;
+    rok = 0;
+}
+
+Data::Data(int d, int m, int r) {
+    dzien = d;
+    miesiac = m;
+    rok = r;
+}
+
+Data::~Data() {
+}
+
+int Data::operator==(const Data &wzor) {
+    long long int dni1, dni2;
+    dni1 = (((rok * 12) + miesiac) * 31) + dzien;
+    dni2 = (((wzor.rok * 12) + wzor.miesiac) * 31) + wzor.dzien;
+
+    if (dni1 > dni2)
+        return 1;
+    else if (dni1 < dni2)
+        return 2;
+    else
+        return 0;
+}

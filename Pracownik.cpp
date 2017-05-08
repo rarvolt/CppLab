@@ -6,6 +6,8 @@
 #include <iostream>
 #include "Pracownik.h"
 
+int Pracownik::siLiczPrac = 0;
+
 /**
  * Zwraca wartość składowej zmiennej pszImie.
  */
@@ -59,11 +61,11 @@ void Pracownik::Wypisz() const {
  * Pobiera od użytkownika wartości składowych zmiennych.
  */
 void Pracownik::Wpisz() {
-    using std::cout
+    using std::cout;
     using std::cin;
 
-    char nowe_imie[25];
-    char nowe_nazwisko[30];
+    char *nowe_imie = NULL;
+    char *nowe_nazwisko = NULL;
 
     cout << "Podaj imie: ";
     cin >> nowe_imie;
@@ -93,3 +95,43 @@ bool Pracownik::SprawdzImie(const char *por_imie) const {
 bool Pracownik::SprawdzNazwiko(const char *por_nazwisko) const {
     return strcmp(pszNazwisko, por_nazwisko) == 0;
 }
+
+Pracownik::Pracownik() {
+    strcpy(pszImie, "");
+    strcpy(pszNazwisko, "");
+    DataUrodzenia = Data();
+    ++siLiczPrac;
+}
+
+Pracownik::Pracownik(const char *nowe_imie, const char *nowe_nazwisko, const Data data_urodz) {
+    strcpy(pszImie, nowe_imie);
+    strcpy(pszNazwisko, nowe_nazwisko);
+    DataUrodzenia = data_urodz;
+    ++siLiczPrac;
+}
+
+
+Pracownik::Pracownik(const Pracownik &pracownik) {
+    strcpy(pszImie, pracownik.pszImie);
+    strcpy(pszNazwisko, pracownik.pszNazwisko);
+    DataUrodzenia = pracownik.DataUrodzenia;
+    ++siLiczPrac;
+}
+
+Pracownik::~Pracownik() {
+    --siLiczPrac;
+    if (!siLiczPrac) {
+        std::cout << "Usunięto ostatniego pracownika." << std::endl;
+    }
+}
+
+Pracownik &Pracownik::operator=(const Pracownik &pracownik) {
+    strcpy(pszImie, pracownik.pszImie);
+    strcpy(pszNazwisko, pracownik.pszNazwisko);
+    DataUrodzenia = pracownik.DataUrodzenia;
+    return *this;
+}
+
+
+
+

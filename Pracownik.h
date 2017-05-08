@@ -10,11 +10,20 @@
 
 class Pracownik {
 private:
-    char pszImie[25];
-    char pszNazwisko[30];
+    static int siLiczPrac;
+
+    char *pszImie;
+    char *pszNazwisko;
     Data DataUrodzenia;
 
 public:
+    Pracownik();
+    Pracownik(const char* nowe_imie, const char* nowe_nazwisko, const Data data_urodz);
+    Pracownik(const Pracownik &pracownik);
+    ~Pracownik();
+
+    Pracownik &operator=(const Pracownik &pracownik);
+
     const char* Imie() const;
     const char* Nazwisko() const;
 

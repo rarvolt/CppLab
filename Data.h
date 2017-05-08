@@ -13,6 +13,12 @@ private:
     int rok;
 
 public:
+    Data();
+    Data(int d, int m, int r);
+    ~Data();
+
+    int operator==(const Data &wzor);
+
     int Dzien() const;
     int Miesiac() const;
     int Rok() const;
