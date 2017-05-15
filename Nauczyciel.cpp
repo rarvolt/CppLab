@@ -50,7 +50,7 @@ void Nauczyciel::WprowadzDane() {
 
 char *Nauczyciel::Tabela() {
     char *tab = NULL;
-    sprintf(tab, "%s | %s | %s | %s | %lf", Imie(), Nazwisko(), DataUrodz(), przedmiot, staz);
+    sprintf(tab, "%d | %s | %s | %s | %s | %lf", ID(), Imie(), Nazwisko(), DataUrodz(), przedmiot, staz);
     return tab;
 }
 
@@ -59,9 +59,9 @@ char *Nauczyciel::Wizytowka() {
     const char *l1 = "Imię i nazwisko:";
     const char *l2 = "Data urodzenia:";
     const char *l3 = "Dane dodatkowe:";
-    sprintf(buf, "%s %s %s\n%s %s\n%s %s %lf lat",
+    sprintf(buf, "%s %s %s\n%s %s\n%s %d %s %lf lat",
         l1, Imie(), Nazwisko(),
         l2, DataUrodz(),
-        l3, przedmiot, staz);
+        l3, ID(), przedmiot, staz);
     return buf;
 }

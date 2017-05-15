@@ -7,6 +7,7 @@
 #include "Pracownik.h"
 
 int Pracownik::siLiczPrac = 0;
+int Pracownik::sNumer = 0;
 
 /**
  * Zwraca wartość składowej zmiennej pszImie.
@@ -53,7 +54,7 @@ void Pracownik::DataUrodz(int nowy_dzien, int nowy_miesiac, int nowy_rok) {
  * imie     nazwisko    dd.mm.rrrr
  */
 void Pracownik::Wypisz() const {
-    std::cout << pszImie << "\t\t" << pszNazwisko << "\t\t";
+    std::cout << pszImie << "\t\t" << pszNazwisko << "\t\t" << id << "\t";
     DataUrodzenia.Wypisz();
 }
 
@@ -96,26 +97,32 @@ bool Pracownik::SprawdzNazwiko(const char *por_nazwisko) const {
     return strcmp(pszNazwisko, por_nazwisko) == 0;
 }
 
-Pracownik::Pracownik() {
+Pracownik::Pracownik()
+        : id(sNumer) {
     strcpy(pszImie, "");
     strcpy(pszNazwisko, "");
     DataUrodzenia = Data();
     ++siLiczPrac;
+    ++sNumer;
 }
 
-Pracownik::Pracownik(const char *nowe_imie, const char *nowe_nazwisko, const Data data_urodz) {
+Pracownik::Pracownik(const char *nowe_imie, const char *nowe_nazwisko, const Data data_urodz)
+        : id(sNumer) {
     strcpy(pszImie, nowe_imie);
     strcpy(pszNazwisko, nowe_nazwisko);
     DataUrodzenia = data_urodz;
     ++siLiczPrac;
+    ++sNumer;
 }
 
 
-Pracownik::Pracownik(const Pracownik &pracownik) {
+Pracownik::Pracownik(const Pracownik &pracownik)
+        : id(sNumer) {
     strcpy(pszImie, pracownik.pszImie);
     strcpy(pszNazwisko, pracownik.pszNazwisko);
     DataUrodzenia = pracownik.DataUrodzenia;
     ++siLiczPrac;
+    ++sNumer;
 }
 
 Pracownik::~Pracownik() {
@@ -134,4 +141,8 @@ Pracownik &Pracownik::operator=(const Pracownik &pracownik) {
 
 char *Pracownik::DataUrodz() const {
     return DataUrodzenia.WypiszRR();
+}
+
+int Pracownik::ID() {
+    return id;
 }

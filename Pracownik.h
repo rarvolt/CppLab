@@ -11,10 +11,12 @@
 class Pracownik {
 private:
     static int siLiczPrac;
+    static int sNumer;
 
     char *pszImie;
     char *pszNazwisko;
     Data DataUrodzenia;
+    const int id;
 
 public:
     Pracownik();
@@ -37,6 +39,8 @@ public:
 
     bool SprawdzImie(const char* por_imie) const;
     bool SprawdzNazwiko(const char* por_nazwisko) const;
+
+    int ID();
 };
 
 
