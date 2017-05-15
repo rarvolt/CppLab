@@ -49,6 +49,13 @@ void Data::Wypisz() const {
 }
 
 
+char *Data::WypiszRR() const {
+    char *buf = NULL;
+    sprintf(buf, "%2d.%2d.%2d", dzien, miesiac, rok);
+    return buf;
+}
+
+
 /**
  * Pobiera od użytkownika dzień, miesiąc i rok,
  * następnie wywołuje unkcję koryguj().

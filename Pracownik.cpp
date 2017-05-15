@@ -132,6 +132,6 @@ Pracownik &Pracownik::operator=(const Pracownik &pracownik) {
     return *this;
 }
 
-
-
-
+char *Pracownik::DataUrodz() const {
+    return DataUrodzenia.WypiszRR();
+}

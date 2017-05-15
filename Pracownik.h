@@ -30,6 +30,7 @@ public:
     void Imie(const char* nowe_imie);
     void Nazwisko(const char* nowe_nazwisko);
     void DataUrodz(int nowy_dzien, int nowy_miesiac, int nowy_rok);
+    char *DataUrodz() const;
 
     void Wypisz() const;
     void Wpisz();

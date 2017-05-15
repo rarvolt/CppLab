@@ -25,6 +25,7 @@ public:
 
     void Ustaw(int d, int m, int r);
     void Wypisz() const;
+    char *WypiszRR() const;
     void Wpisz();
     void koryguj();
     int porownaj(const Data &wzor) const;
