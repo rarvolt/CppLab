@@ -55,7 +55,7 @@ int Szkola::Znajdz(const char *nazwisko) {
 }
 
 void Szkola::Wyswietl(int n) {
-    std::cout << nauczyciele[n]->Tabela() std::endl;
+    std::cout << nauczyciele[n]->Tabela() << std::endl;
 }
 
 void Szkola::Lista() {
