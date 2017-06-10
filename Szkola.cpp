@@ -33,7 +33,7 @@ Szkola::~Szkola() {
 
 int Szkola::Dodaj_nauczyciela(const Nauczyciel &nauczyciel) {
     for (int i = 0; i < ile; ++i) {
-        if (nauczyciele != NULL) {
+        if (nauczyciele[i] == NULL) {
             nauczyciele[i] = new Nauczyciel(nauczyciel);
             return i;
         }

@@ -65,8 +65,8 @@ void Pracownik::Wpisz() {
     using std::cout;
     using std::cin;
 
-    char *nowe_imie = NULL;
-    char *nowe_nazwisko = NULL;
+    char nowe_imie[50];
+    char nowe_nazwisko[50];
 
     cout << "Podaj imie: ";
     cin >> nowe_imie;

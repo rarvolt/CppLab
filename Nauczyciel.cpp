@@ -38,14 +38,20 @@ void Nauczyciel::WprowadzDane() {
     using std::cout;
     using std::cin;
 
+    char nowy_przedmiot[50];
+    int nowy_staz;
+
     // Wczytywanie danych do klasy bazowej - Pracownik.Wpisz()
     Wpisz();
 
-    cout << "Podaj predmiot: ";
-    cin >> przedmiot;
+    cout << "Podaj przedmiot: ";
+    cin >> nowy_przedmiot;
 
     cout << "Podaj staż: ";
-    cin >> staz;
+    cin >> nowy_staz;
+
+    Przedmiot(nowy_przedmiot);
+    Staz(nowy_staz);
 }
 
 char *Nauczyciel::Tabela() {
